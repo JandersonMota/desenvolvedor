@@ -30,7 +30,7 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 ## 4. Back-end
 ### 4.1 Web
 #### Java Spring
-- Java JTE
+- Java JTE [+](https://foojay.io/today/spring-boot-java-template-engine-jte/)
 
 ## 5. Banco de dados
 ### SQL
