@@ -13,7 +13,7 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 #### 3.1.1 Código
 - HTML [+](https://github.com/JandersonMota/ifba-oficina-html_css)
 - CSS [+](https://github.com/JandersonMota/ifba-oficina-html_css)
-- Javascript
+- Javascript [+](https://github.com/JandersonMota/estudando-javascript)
 
 #### 3.1.2 CA SSL - Autoridade de Certificação Secure Sockets Layer
 #### 3.1.3 CDN - Content Delivery Network ou Rede de Distribuição de Conteúdo
