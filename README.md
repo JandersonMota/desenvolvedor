@@ -19,6 +19,7 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 #### 3.1.3 CDN - Content Delivery Network ou Rede de Distribuição de Conteúdo
 #### 3.1.4 SaaS - Software as a Service
 #### 3.1.5 SEO (Otimização para motores de busca)
+#### 3.1.6 Interface do Usuário (UI) e à Experiência do Usuário (UX)
 ---
 ### 3.2 Feature Flags
 [Saiba mais](https://github.com/JandersonMota/desenvolvedor/tree/main/front-end)
