@@ -20,12 +20,13 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 #### 3.1.4 SaaS - Software as a Service
 #### 3.1.5 SEO (Otimização para motores de busca)
 #### 3.1.6 Interface do Usuário (UI) e à Experiência do Usuário (UX)
+#### 3.1.7 Psicologia das cores
 ---
 ### 3.2 Feature Flags
 [Saiba mais](https://github.com/JandersonMota/desenvolvedor/tree/main/front-end)
 
 ---
-### 3.3 Livro
+### 3.4 Livro
 - **"Don't Make Me Think" – Steve Krug**:
   Um clássico que aborda usabilidade de forma direta e acessível. Ideal para quem quer entender como os usuários interagem com websites e como simplificar a experiência.
 - **"Designing for the Web" – Mark Boulton**:
@@ -42,3 +43,7 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 
 ## 6. Engenheiro de software
 - Monolito de software
+
+## 7. Ferramenta interesante
+##$ 7.1 Autenticação a aplicativos
+- keycloak [Site](https://www.keycloak.org/)
