@@ -3,6 +3,15 @@ As anotações fazem parte do conceito de **programação declarativa**, onde vo
 
 Os códigos que possuem `@` representam anotações no Java. As **anotações** são uma maneira de fornecer metadados para o compilador ou framework (como o Spring e o JPA), indicando como o código deve ser processado ou executado.
 
+
+## Status CODE
+|CODE	   |Significado			|
+|----------|----------------------------|
+|2xx	   |Sucesso			|
+|4xx	   |Erro do cliente		|
+|5xx  	   |Erro no serviço/servidor	|
+
+
 ## Spring Data JPA (JPA = Java Persistence API)
 ### Explicação das anotações no código:
 ### `@Entity`
@@ -198,3 +207,14 @@ public class CategoriaResource {
 3. O Spring injeta automaticamente o repositório `CategoriaRepository` no atributo.
 4. O método `listar` é chamado, que usa o repositório para buscar todas as categorias no banco de dados.
 5. A lista de categorias é retornada em formato JSON.
+
+
+## Spring Jackson JSON
+O Jackson é uma biblioteca de processamento de dados JSON para a linguagem de programação Java, que serve para transformar texto em código.
+
+O Jackson é conhecido por ser eficiente e flexível, permitindo que os desenvolvedores manipulem dados JSON de forma simples e intuitiva.
+
+O Jackson oferece uma série de funcionalidades, como:
+- Anotações que personalizam a serialização e deserialização de objetos Java para e de JSON.
+- Suporte a vários formatos, além de JSON, como XML e YAML.
+- Conjunto robusto de anotações que permitem um controle fino sobre a serialização e desserialização.
