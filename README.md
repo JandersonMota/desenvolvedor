@@ -60,7 +60,7 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 **Saiba mais:**
 - [Spring Framework: Documentação Oficial](https://spring.io/projects/spring-framework)
 - [Java Persistence API (JPA): Documentação Oficial](https://javaee.github.io/javaee-spec/jpa)
-- [Neste GitHub: JPA](https://github.com/JandersonMota/desenvolvedor/blob/main/banco-de-dados/README.md)
+- [Neste GitHub: JPA](https://github.com/JandersonMota/desenvolvedor/blob/main/back-end/README.md)
 - [Spring Boot: Java Template Engine (JTE)](https://foojay.io/today/spring-boot-java-template-engine-jte/)
 
 ## 5. Banco de dados
