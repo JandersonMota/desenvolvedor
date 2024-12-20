@@ -81,17 +81,17 @@ Algumas anotações de @Entity
     - Definição: é usada para especificar como um campo de uma classe Java deve ser mapeado para uma coluna em uma tabela de banco de dados, ou seja, especifica detalhes da coluna.
     - Atributos da anotação:
       
-        | **Atributos**    | **Exemplo**                                    | **Definição**                                 |
-        |------------------|------------------------------------------------|-----------------------------------------------|
-        | name             | `@Column(name = "id_cliente")`                 | Especifica o nome da coluna no banco de dados.|
-        | nullable         | `@Column(nullable = false)`                    | Indica se a coluna pode conter valores nulos. |
-        | unique           | `@Column(unique = true)`                       | Indica se a coluna deve conter valores únicos.|
-        | length           | `@Column(length = 100)`                        | Especifica o comprimento máximo da coluna (útil para tipos de dados de caracteres). |
-        | precision        | `@Column(precision = 10)`                      | Especifica a precisão para tipos numéricos.   |
-        | scale            | `@Column(scale = 2)`                           | Especifica a escala para tipos numéricos.     |
-        | updatable        | `@Column(updatable = false)`                   | Indica se a coluna pode ser atualizada.       |
-        | insertable       | `@Column(insertable = false)`                  | Indica se a coluna pode ser inserida.         |
-        | columnDefinition | `@Column(columnDefinition = "cp(var) varchar")`| Permite especificar a definição da coluna no banco de dados (útil para tipos de dados específicos do banco de dados).|
+        | **Atributos**    | **Exemplo**                                     | **Definição**                                 |
+        |------------------|-------------------------------------------------|-----------------------------------------------|
+        | name             | `@Column(name = "id_cliente")`                  | Especifica o nome da coluna no banco de dados.|
+        | nullable         | `@Column(nullable = false)`                     | Indica se a coluna pode conter valores nulos. |
+        | unique           | `@Column(unique = true)`                        | Indica se a coluna deve conter valores únicos.|
+        | length           | `@Column(length = 100)`                         | Especifica o comprimento máximo da coluna (útil para tipos de dados de caracteres). |
+        | precision        | `@Column(precision = 10)`                       | Especifica a precisão para tipos numéricos.   |
+        | scale            | `@Column(scale = 2)`                            | Especifica a escala para tipos numéricos.     |
+        | updatable        | `@Column(updatable = false)`                    | Indica se a coluna pode ser atualizada.       |
+        | insertable       | `@Column(insertable = false)`                   | Indica se a coluna pode ser inserida.         |
+        | columnDefinition | `@Column(columnDefinition = "cp(var) varchar")` | Permite especificar a definição da coluna no banco de dados (útil para tipos de dados específicos do banco de dados).|
 
 **Conclusão**
 
