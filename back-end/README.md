@@ -12,45 +12,6 @@ Os códigos que possuem `@` representam anotações no Java. As **anotações** 
 |5xx  	   |Erro no serviço/servidor	|
 
 
-## Anotações do Spring Framework
-
-### `@Table(name="<NOME-DA-TABELA>")`
-- Define o nome da tabela no banco de dados que será usada para mapear essa entidade.
-- Por padrão, o JPA usa o nome da classe como o nome da tabela, mas você pode sobrescrever isso com `@Table(name="categoria")` por exemplo.
-
-
-### `@Id`
-- Indica que o atributo codigo é a chave primária da tabela.
-- Essa é uma exigência do JPA para identificar de forma única cada linha na tabela.
-
-
-### `@GeneratedValue(strategy = GenerationType.IDENTITY)`
-- Indica que o valor da chave primária será gerado automaticamente pelo banco de dados.
-- O parâmetro `strategy = GenerationType.IDENTITY` especifica que o banco de dados usará uma estratégia de auto incremento para gerar os valores da coluna.
-
-```Java
-import javax.persistence.Entity;
-import javax.persistence.GeneratedValue;
-import javax.persistence.GenerationType;
-import javax.persistence.Id;
-import javax.persistence.Table;
-
-@Entity
-@Table(name="categoria")
-public class Categoria {
-	
-	@Id
-	@GeneratedValue(strategy = GenerationType.IDENTITY)
-	private Long codigo;
-	private String nome;
-}
-```
-#### Por que usar essas anotações?
-- Elas eliminam a necessidade de escrever SQL manual para definir a estrutura do banco de dados.
-- O JPA usa as anotações para gerar automaticamente as tabelas e manipular os dados.
-- Isso simplifica o desenvolvimento, deixando o foco na lógica de negócio.
-
-
 ---
 ### @RestController
 `@RestController` é uma anotação do Spring Framework usada em aplicações web baseadas em Spring. Essa anotação combina as funcionalidades de `@Controller` e `@ResponseBody`, tornando-a muito útil para criar controladores RESTful. Vamos explorar mais detalhadamente o que `@RestController` faz e como ele é usado.
