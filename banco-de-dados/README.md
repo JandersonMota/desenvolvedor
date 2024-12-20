@@ -2,6 +2,11 @@
 
 ## Anotação
 
+**Por que usar essas anotações?**
+- Elas eliminam a necessidade de escrever SQL manual para definir a estrutura do banco de dados.
+- O JPA usa as anotações para gerar automaticamente as tabelas e manipular os dados.
+- Isso simplifica o desenvolvimento, deixando o foco na lógica de negócio.
+
 ### @Entity
 `@Entity` é uma anotação usada em Java, principalmente no contexto de frameworks de mapeamento objeto-relacional (ORM), como o Hibernate e o JPA (Java Persistence API). Essa anotação é utilizada para indicar que uma classe Java representa uma tabela em um banco de dados. Cada instância dessa classe é considerada uma linha (ou registro) na tabela correspondente.
 
