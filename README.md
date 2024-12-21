@@ -72,7 +72,7 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 - [Hibernate: Documentação Oficial](https://hibernate.org/documentaion.html)
 - [Neste GitHub: ORM](https://github.com/JandersonMota/desenvolvedor/tree/main/banco-de-dados)
 
-## 6. Engenheiro de software
+## 6. Engenharia de software
 - **Monolito de Software**: Arquitetura de aplicações em que todas as funcionalidades são empacotadas em uma única aplição.
 
 **Saiba mais:**
