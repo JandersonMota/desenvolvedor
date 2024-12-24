@@ -621,10 +621,204 @@ O Jackson oferece uma série de funcionalidades, como:
 - Suporte a vários formatos, além de JSON, como XML e YAML.
 - Conjunto robusto de anotações que permitem um controle fino sobre a serialização e desserialização.
 
-## 
-handleMethodArgumentNotValid trata o argumento quando não está válido.
+## handleMethodArgumentNotValid
 
-BindingResult
+A principal função do `handleMethodArgumentNotValid` é capturar a exceção `MethodArgumentNotValidException` e retornar uma resposta HTTP apropriada para o cliente, contendo informações detalhadas sobre os erros de validação. Isso é útil para fornecer feedback claro e útil para os clientes da API, ajudando-os a corrigir os dados enviados.
+
+Resulmndo, trata o argumento quando não está válido.
+
+**Estrutura do Código**
+
+Aqui está um exemplo de como o `handleMethodArgumentNotValid` pode ser implementado:
+
+``` Java
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
+import org.springframework.validation.FieldError;
+import org.springframework.web.bind.MethodArgumentNotValidException;
+import org.springframework.web.bind.annotation.ControllerAdvice;
+import org.springframework.web.bind.annotation.ExceptionHandler;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@ControllerAdvice
+public class GlobalExceptionHandler {
+
+    @ExceptionHandler(MethodArgumentNotValidException.class)
+    public ResponseEntity<Map<String, String>> handleMethodArgumentNotValid(MethodArgumentNotValidException ex) {
+        Map<String, String> errors = new HashMap<>();
+        ex.getBindingResult().getAllErrors().forEach((error) -> {
+            String fieldName = ((FieldError) error).getField();
+            String errorMessage = error.getDefaultMessage();
+            errors.put(fieldName, errorMessage);
+        });
+        return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+    }
+}
+```
+
+**Explicação do Código**
+
+**1. @ControllerAdvice:**
+
+- Esta anotação indica que a classe é um controlador de exceções global, ou seja, ela lida com exceções em todos os controladores da aplicaão.
+
+**2. @ExceptionHandler:**
+
+- Esta anotação é usada para especificar que o método deve lidar com uma exceção específica, neste caso, `MethodArgumentNotValidException`.
+
+**3. Método handleMethod argument not valid:**
+
+- O método recebe a exceção `MethodArgumentNotValidException` como parâmetro.
+- Cria um mapa para armazenar os erros de validação.
+- Itera sobre os erros de validação contidos na exceção e os adiciona ao mapa.
+- Retona uma resposta HTTP com o mapa de erros e o código de status `BAD_REQUEST` (400).
+
+**4. Mapa de erros:**
+
+- O mapa `errors` armazena as informações de erros, onde a chave é o nome do campo e o valor é a mensagem de erro.
+
+**5. iteração sobre os erros:**
+
+- O método `ex.getBindingResult().getAllErrors()` retorna uma lista de erros de validação.
+- Para cada erro, extrai o nome do campo e a mensagem de erro.
+- Adiciona essas informações ao mapa `errors`.
+
+**6. retono:**
+
+- Retona um `ResponseEntity` com o mapa de erros e o código de status `BAD_REQUEST`.
+
+**Exemplo de Uso**
+
+Suponha que você tenha um DTO com validações:
+
+``` Java
+import javax.validation.constraints;
+
+public class UserDto {
+
+    @NotNull
+    @Size(min = 1, max = 50)
+    private String nome;
+
+    @NotNull
+    @email
+    private String email;
+
+    // Construtores, getters e setters
+}
+```
+
+Se uma requisição for enviada com dados inválidos, a exceção `MethodArgumentNotValidException` será lançada, e o `handleMethodArgumentNotValid` será chamado para lidar com a exceção e retoraruma resposta apropriada.
+
+**Conclusão**
+
+O `handleMethodArgumentNotValid` é uma ferramenta crucial para lidar com erros de validação de dados em aplicações Spring. Isso melhora a experiência do desenvolvedor e do usuário, fornecendo feedback claro e útil sobre os erros de validação. Isso é uma prática comum em aplicações RESTful para manter a qualidade e a usabilidade da API.
+
+
+## BindingResult
+
+O *BindingResult* é uma interface do Spring Framework que é usada para capturar e manipular erros de validação e binding de dados em aplicações web. Ele é frequentemente usado em conjunto com anotações de validação, como `@Valid` ou `@Validated`, para fornecer feedback detalhado sobre os erros de validação.
+
+**Função do \`BindingResult\`**
+
+O \`BindingResult\` serve para:
+
+**1. Capturar erros de validação**: Quando uma requisição HTTP é recebida, o Spring Framework tenta mapear os dados da requisição para um objeto Java (geralmente um DTO). Se houver erros de validação (por exemplo, um campo obrigatório está ausente ou um valor está fora do intervalo permitido), esses erros são capturados pelo `BindingResult`.
+
+**2. Fornecer acesso aos erros**: O `BindingResult` permite que você acesse os erros de validação e os manipule conforme necessário. Isso é útil para retornar mensagens de erro detalhadas ao cliente da API.
+
+**3. Controlar a lógica de fluxo**: Você pode usar o `BindingResult` para controlar o fluxo da aplicação. Por exemplo, se houver erros de validação, você pode interromper o processamento da requisição e retornar uma resposta de erro imediatamente.
+
+**Exemplo de Uso**
+
+Vamos ver um exemplo completo para ilustrar o uso do `BindingResult`.
+
+**DTO com Anotações de Validação**
+
+``` Java
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Email;
+
+public class UserDto {
+
+    @NotEmpty(message = "Nome é obrigatório")
+    private String nome;
+
+    @NotEmpty(message = "Email é obrigatório")
+    @Email(message = "Email inválido")
+    private String email;
+
+    // Getters e setters
+}
+```
+
+Controlador com `BindingResult`
+
+``` Java
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+public class UserController {
+
+    @PostMapping("/api/users")
+    public ResponseEntity<?> createUser(@RequestBody @Valid UserDto userDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            bindingResult.getAllErrors().forEach(error -> {
+                String fieldName = ((FieldError) error).getField();
+                String errorMessage = error.getDefaultMessage();
+                errors.put(fieldName, errorMessage);
+            });
+            return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        }
+
+        // Lógica para criar o usuário
+        // ...
+
+        return new ResponseEntity<>("Usuário criado com sucesso", HttpStatus.CREATED);
+    }
+}
+```
+
+**Explicação do Código**
+
+**1. DTO com Anotações de Validação:**
+
+- O `UserDto` possui anotações de validação como `@NotEmpty` e `@Email` para garantir que os campos `nome` e `email` não estejam vazios e que o `email` seja um endereço de email válido.
+
+**2. Controlador:**
+
+- O método `createUser` recebe um `UserDto` anotado com `@Valid` e um `BindingResult` como parâmetros.
+- O `@Valid` indica que o `UserDto` deve ser validado antes de ser passado para o método.
+- O `BindingResult` deve ser o próximo parâmetro após o objeto a ser validado.
+
+**3. Verificação de Erros:**
+
+- `if (bindingResult.hasErrors())`: Verifica se há erros de validação.
+- `bindingResult.getAllErrors()`: Obtém uma lista de todos os erros de validação.
+- `((FieldError) error).getField()`: Obtém o nome do campo que causou o erro.
+- `error.getDefaultMessage()`: Obtém a mensagem de erro associada ao campo.
+- Os erros são armazenados em um mapa e retornados como uma resposta HTTP com o status `BAD_REQUEST`.
+
+**4. Retorno da Resposta:**
+
+- Se houver erros de validação, uma resposta HTTP com status `BAD_REQUEST` e um mapa de erros é retornada.
+- Se não houver erros, a lógica para criar o usuário é executada e uma resposta HTTP com status `CREATED` é retornada.
+
+**Conclusão**
+
+O `BindingResult` é uma ferramenta poderosa para capturar e manipular erros de validação em aplicações Spring. Ele permite que você forneça feedback detalhado ao cliente da API, melhorando a experiência do usuário e garantando que os dados enviados estejam válidos antes de serem processados. Isso é uma prática comum em aplicações RESTful para manter a qualidade e a usabilidade da API.
+
 
 FieldError
 
