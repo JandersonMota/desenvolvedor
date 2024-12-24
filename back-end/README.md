@@ -332,7 +332,13 @@ class Usuario {
 
 
 ---
-### `@RequestMapping("/<CAMINHO-DA-URL>")`
+### `@RequestMapping`
+
+É usada para mapear requisições HTTP a métodos de controladores em aplicações web.
+
+As anotações `@GetMapping`, `@PostMapping`, `@PutMapping`, `@DeleteMapping`, e `@PatchMapping` são todas especializações da anotação @RequestMapping, e compartilham os mesmos atributos.
+
+Ex.: `@RequestMapping("/<CAMINHO-DA-URL>")`
 
 **O que é:**
 - Define a URL base para as requisições que serão processadas por essa classe ou método.
@@ -342,6 +348,7 @@ class Usuario {
 - Especifica um caminho de URL, e também pode definir:
 	- O tipo de requisição HTTP (GET, POST, PUT, DELETE, etc.).
 	- Parâmetros adicionais (como cabeçalhos ou mídia aceita).
+
 **Exemplo em uma classe:**
 
 ``` Java
@@ -356,8 +363,63 @@ public class ApiController {
 **O que acontece:**
 - A URL completa para acessar o método seria `/api/users`.
 
+**Principais atributos e suas descrições:**
 
+| Atributo | Descrição | Exemplo |
+|----------|-----------|---------|
+| value	   | Especifica o caminho de URL para a requisição. 				   | `@RequestMapping("/api/users")` |
+| method   | Especifica o método HTTP que deve ser mapeado (GET, POST, PUT, DELETE, etc.). | `@RequestMapping(method = RequestMethod.GET)` |
+| params   | Especifica os parâmetros de requisição que devem estar presentes. 		   | `@RequestMapping(params = "id=123")` |
+| headers  | Especifica os cabeçalhos de requisição que devem estar presentes. 		   | `@RequestMapping(headers = "Content-Type=application/json")` |
+| consumes | Especifica os tipos de mídia que o método pode consumir. 			   | `@RequestMapping(consumes = "application/json")` |
+| produces | Especifica os tipos de mídia que o método pode produzir. 			   | `@RequestMapping(produces = "application/json")` |
+| name     | Especifica um nome para a requisição mapeada. Útil para referências internas. | `@RequestMapping(name = "getUsers")` |
+
+**Exemplo de Uso**
+
+Aqui está um exemplo que demonstra o uso de vários atributos de `@RequestMapping`:
+
+``` Java
+import org.springframework.web.bind.annotation.RequestMapping;
+import org.springframework.web.bind.annotation.RequestMethod;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.Arrays;
+import java.util.List;
+
+@RestController
+public class MeuController {
+
+    @RequestMapping(
+        value = "/api/users",
+        method = RequestMethod.GET,
+        params = "id=123",
+        headers = "Content-Type=application/json",
+        consumes = "application/json",
+        produces = "application/json",
+        name = "getUsers"
+    )
+    public List<String> listarUsuarios() {
+        return Arrays.asList("User1", "User2");
+    }
+}
+```
+
+**Explicação do Exemplo**
+
+- **value**: Define o caminho de URL como `/api/users`.
+- **method**: Especifica que o método deve responder a requisições GET.
+- **params**: Especifica que o parâmetro `id` deve ser igual a `123`.
+- **headers**: Especifica que o cabeçalho `Content-Type` deve ser `application/json`.
+- **consumes**: Especifica que o método pode consumir requisições com o tipo de mídia `application/json`.
+- **produces**: Especifica que o método produzirá respostas com o tipo de mídia `application/json`.
+- **name**: Fornece um nome para a requisição mapeada, útil para referências internas.
+
+
+---
 ### `@GetMapping`
+
+É usada para mapear requisições HTTP a métodos de controladores em aplicações web.
+
 **O que é:**
 - Especifica que o método deve responder apenas a requisições HTTP **GET**.
 - É uma alternativa simplificada a `@RequestMapping(method = RequestMethod.GET)`.
@@ -402,12 +464,151 @@ public class CategoriaResource {
     }
 }
 ```
+
 **Fluxo:**
 1. O cliente faz uma requisição GET para `/categorias`.
 2. O Spring verifica que a URL pertence ao controller `CategoriaResource`.
 3. O Spring injeta automaticamente o repositório `CategoriaRepository` no atributo.
 4. O método `listar` é chamado, que usa o repositório para buscar todas as categorias no banco de dados.
 5. A lista de categorias é retornada em formato JSON.
+
+**Outras Anotações Relacionadas**
+- @PostMapping: Especifica que o método deve ser chamado para requisições HTTP POST.
+- @PutMapping: Especifica que o método deve ser chamado para requisições HTTP PUT.
+- @DeleteMapping: Especifica que o método deve ser chamado para requisições HTTP DELETE.
+- @PatchMapping: Especifica que o método deve ser chamado para requisições HTTP PATCH.
+
+**Exemplo de uso das anotações com atributos**
+
+@GetMapping
+``` Java
+import org.springframework.web.bind.annotation.GetMapping;
+import org.springframework.web.bind.annotation.RestController;
+import java.util.Arrays;
+import java.util.List;
+
+@RestController
+public class MeuController {
+
+    @GetMapping(
+        value = "/api/users",
+        params = "id=123",
+        headers = "Content-Type=application/json",
+        consumes = "application/json",
+        produces = "application/json",
+        name = "getUsers"
+    )
+    public List<String> listarUsuarios() {
+        return Arrays.asList("User1", "User2");
+    }
+}
+```
+
+@PostMapping
+``` Java
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MeuController {
+
+    @PostMapping(
+        value = "/api/users",
+        params = "active=true",
+        headers = "Content-Type=application/json",
+        consumes = "application/json",
+        produces = "application/json",
+        name = "createUser"
+    )
+    public User criarUsuario(@RequestBody User user) {
+        // Lógica para criar um usuário
+        return user;
+    }
+}
+```
+
+@PutMapping
+``` Java
+import org.springframework.web.bind.annotation.PutMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MeuController {
+
+    @PutMapping(
+        value = "/api/users/{id}",
+        params = "active=true",
+        headers = "Content-Type=application/json",
+        consumes = "application/json",
+        produces = "application/json",
+        name = "updateUser"
+    )
+    public User atualizarUsuario(@RequestBody User user) {
+        // Lógica para atualizar um usuário
+        return user;
+    }
+}
+```
+
+@DeleteMapping
+``` Java
+import org.springframework.web.bind.annotation.DeleteMapping;
+import org.springframework.web.bind.annotation@RestController;
+
+@RestController
+public class MeuController {
+
+    @DeleteMapping(
+        value = "/api/users/{id}",
+        params = "active=true",
+        headers = "Content-Type=application/json",
+        produces = "application/json",
+        name = "deleteUser"
+    )
+    public void deletarUsuario() {
+        // Lógica para deletar um usuário
+    }
+}
+```
+
+@PatchMapping
+``` Java
+import org.springframework.web.bind.annotation.PatchMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+
+@RestController
+public class MeuController {
+
+    @PatchMapping(
+        value = "/api/users/{id}",
+        params = "active=true",
+        headers = "Content-Type=application/json",
+        consumes = "application/json",
+        produces = "application/json",
+        name = "patchUser"
+    )
+    public User patchUsuario(@RequestBody User user) {
+        // Lógica para atualizar parcialmente um usuário
+        return user;
+    }
+}
+```
+
+**Resumo**
+
+| **Anotação**    | **Descrição** 					      |
+|-----------------|-----------------------------------------------------------|
+| @RequestMapping | Anotação genérica para mapear requisições HTTP.           |
+| @GetMapping     | Anotação específica para mapear requisições HTTP GET.     |
+| @PostMapping    | Anotação específica para mapear requisições HTTP POST.    |
+| @PutMapping     | Anotação específica para mapear requisições HTTP PUT.     |
+| @DeleteMapping  | Anotação específica para mapear requisições HTTP DELETE.  |
+| @PatchMapping   | Anotação específica para mapear requisições HTTP PATCH.   |
+
+Essas anotações são essenciais para criar controladores RESTful em aplicações Spring, permitindo que você mapeie diferentes tipos de requisições HTTP a métodos específicos em suas classes de controlador. São ferramentas cruciais para o desenvolvimento de APIs web.
 
 
 ## Spring Jackson JSON
@@ -419,3 +620,12 @@ O Jackson oferece uma série de funcionalidades, como:
 - Anotações que personalizam a serialização e deserialização de objetos Java para e de JSON.
 - Suporte a vários formatos, além de JSON, como XML e YAML.
 - Conjunto robusto de anotações que permitem um controle fino sobre a serialização e desserialização.
+
+## 
+handleMethodArgumentNotValid trata o argumento quando não está válido.
+
+BindingResult
+
+FieldError
+
+messageSource
