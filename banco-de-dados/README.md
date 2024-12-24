@@ -468,3 +468,7 @@ No banco de dados, as tabelas clientes e fornecedores terão colunas para os cam
 **Conclusão**
 
 `@Embeddable` é uma anotação útil para reutilizar conjuntos de campos em várias entidades, evitando a redundância de código e simplificando o mapeamento de objetos para tabelas de banco de dados. Isso torna o código mais limpo e manutenível.
+
+### @NotNull
+
+Precisa adicionar a dependência (no Maven) Spring Data JPA para ter acesso a biblioteca javax.validation.constraints. E para funcionar a anotação @NotNull, precisa do `@Valid` (javax.validation) para validar a categoria que deseja.
