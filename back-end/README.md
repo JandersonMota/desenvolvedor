@@ -820,6 +820,81 @@ public class UserController {
 O `BindingResult` é uma ferramenta poderosa para capturar e manipular erros de validação em aplicações Spring. Ele permite que você forneça feedback detalhado ao cliente da API, melhorando a experiência do usuário e garantando que os dados enviados estejam válidos antes de serem processados. Isso é uma prática comum em aplicações RESTful para manter a qualidade e a usabilidade da API.
 
 
-FieldError
+---
+### FieldError
 
-messageSource
+O \`FieldError\` é uma classe do Spring Framework que representa um erro de validação específico para um campo de um objeto de domínio de dados (DTO). Ele é frequentemente usado em conjunto com o \`BindingResult\` para capturar e manipular erros de validação detalhados em aplicações web.
+
+**Função do \`FieldError\`**
+
+O \`FieldError\` serve para:
+
+**1. Identificar o Campo com Erro:** O \`FieldError\` contém informações sobre qual campo de um objeto teve um erro de validação.
+**2. Fornecer a Mensagem de Erro:** Ele fornece a mensagem de erro associada ao campo, que pode ser personalizada usando anotações de validação.
+**3. Fornecer Detalhes Adicionais:** O \`FieldError\` pode conter informações adicionais, como o valor inválido que foi fornecido e o objeto que foi validado.
+
+**Atributos Principais do \`FieldError\`**
+
+- `getField()`: Retorna o nome do campo que causou o erro.
+- `getRejectedValue()`: Retorna o valor inválido que foi fornecido para o campo.
+- `getDefaultMessage()`: Retorna a mensagem de erro padrão associada ao o campo.
+- `getCode()`: Retorna o código de erro, que pode ser usado para internacionalização.
+- `getCodes()`: Retorna uma lista de códigos de erro que podem ser usados para resolver mensagens de erro.
+- `getArguments()`: Retorna os argumentos que foram usados para formatar a mensagem de erro.
+- `getObjectName()`: Retorna o nome do objeto que foi validado.
+
+
+### MessageSource
+
+O \`MessageSource\` é uma interface do Spring Framework que é usada para obter mensagens internacionalizadas. Ele é comumente usado para fornecer mensagens de erro, mensagens de sucesso, e outras mensagens de texto que podem ser traduzidas para diferentes idiomas. Isso é particularmente útil em aplicações que precisam suportar múltiplos idiomas.
+
+**Função do \`MessageSource\`**
+
+**1. Internacionalização (i18n):**
+
+- O \`MessageSource\` permite que você armazene mensagens em arquivos de propriedades (por exemplo, `messages.properties`, `messages_en.properties`, `messages_pt.properties`, etc.).
+- Esses arquivos contêm pares de chave-valor, onde a chave é um identificador único e o valor é a mensagem em um idioma específico.
+- O `MessageSource` pode ser configurado para carregar esses arquivos e fornecer as mensagens apropriadas com base no idioma do usuário.
+
+**2. Mensagens de Erro:**
+
+- O `MessageSource` é frequentemente usado para fornecer mensagens de erro personalizadas, especialmente em validações de entrada de dados.
+
+**3. Mensagens de Sucesso e Informação:**
+
+- Além de mensagens de erro, o `MessageSource` pode ser usado para mensagens de sucesso e informações gerais.
+
+**Exemplo de Uso**
+
+Vamos ver um exemplo completo para ilustrar o uso do `MessageSource`.
+
+**Configuração do `MessageSource`**
+
+**1. Arquivos de Propriedades:**
+
+- Crie arquivos de propriedades para diferentes idiomas. Por exemplo:
+	- `messages.properties` (padrão):
+ 
+		```
+		user.name.required=Nome é obrigatório
+		user.email.required=Email é obrigatório
+		user.email.invalid=Email inválido
+		```
+	- messages_en.properties (inglês):
+
+		```
+		user.name.required=Name is required
+		user.email.required=Email is required
+		user.email.invalid=Invalid email
+		```
+	- messages_pt.properties (português):
+ 
+		```
+		user.name.required=Nome é obrigatório
+		user.email.required=Email é obrigatório
+		user.email.invalid=Email inválido
+		```
+
+**2. Configuração do \`MessageSource\` no Spring:**
+
+- Configure o \`MessageSource\` no seu arquivo de configuração Spring (por exemplo, `applicationContext.xml` ou `@Configuration` class).
