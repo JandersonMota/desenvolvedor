@@ -898,3 +898,151 @@ Vamos ver um exemplo completo para ilustrar o uso do `MessageSource`.
 **2. Configuração do \`MessageSource\` no Spring:**
 
 - Configure o \`MessageSource\` no seu arquivo de configuração Spring (por exemplo, `applicationContext.xml` ou `@Configuration` class).
+
+**XML Configuration (applicationContext.xml):**
+
+``` xml
+<bean id="messageSource" class="org.springframework.context.support.ReloadableResourceBundleMessageSource">
+    <property name="basename" value="classpath:messages" />
+    <property name="defaultEncoding" value="UTF-8" />
+</bean>
+```
+
+Java Config (`@Configuration` class):
+
+``` Java
+import org.springframework.context.MessageSource;
+import org.springframework.context.annotation.Bean;
+import org.springframework.context.annotation.Configuration;
+import org.springframework.context.support.ReloadableResourceBundleMessageSource;
+import org.springframework.validation.beanvalidation.LocalValidatorFactoryBean;
+
+@Configuration
+public class AppConfig {
+
+    @Bean
+    public MessageSource messageSource() {
+        ReloadableResourceBundleMessageSource messageSource = new ReloadableResourceBundleMessageSource();
+        messageSource.setBasename("classpath:messages");
+        messageSource.setDefaultEncoding("UTF-8");
+        return messageSource;
+    }
+
+    @Bean
+    public LocalValidatorFactoryBean validator(MessageSource messageSource) {
+        LocalValidatorFactoryBean validator = new LocalValidatorFactoryBean();
+        validator.setValidationMessageSource(messageSource);
+        return validator;
+    }
+}
+```
+
+**3. DTO com Anotações de Validação**
+
+Crie um DTO com anotações de validação.
+
+``` Java
+import javax.validation.constraints.NotEmpty;
+import javax.validation.constraints.Email;
+
+public class UserDto {
+
+    @NotEmpty(message = "{user.name.required}")
+    private String nome;
+
+    @NotEmpty(message = "{user.email.required}")
+    @Email(message = "{user.email.invalid}")
+    private String email;
+
+    // Getters e Setters
+    public String getNome() {
+        return nome;
+    }
+
+    public void setNome(String nome) {
+        this.nome = nome;
+    }
+
+    public String getEmail() {
+        return email;
+    }
+
+    public void setEmail(String email) {
+        this.email = email;
+    }
+}
+```
+
+**4. Controlador com \`MessageSource\`**
+
+Crie um controlador que use o \`MessageSource\` para retornar mensagens de erro de validação.
+
+``` Java
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.MessageSource;
+import org.springframework.validation.BindingResult;
+import org.springframework.web.bind.annotation.PostMapping;
+import org.springframework.web.bind.annotation.RequestBody;
+import org.springframework.web.bind.annotation.RestController;
+import org.springframework.http.ResponseEntity;
+import org.springframework.http.HttpStatus;
+import org.springframework.validation.FieldError;
+import org.springframework.context.i18n.LocaleContextHolder;
+import java.util.HashMap;
+import java.util.Map;
+
+@RestController
+public class UserController {
+
+    private final MessageSource messageSource;
+
+    @Autowired
+    public UserController(MessageSource messageSource) {
+        this.messageSource = messageSource;
+    }
+
+    @PostMapping("/api/users")
+    public ResponseEntity<?> createUser(@RequestBody @Valid UserDto userDto, BindingResult bindingResult) {
+        if (bindingResult.hasErrors()) {
+            Map<String, String> errors = new HashMap<>();
+            bindingResult.getAllErrors().forEach(error -> {
+                if (error instanceof FieldError) {
+                    String fieldName = ((FieldError) error).getField();
+                    String errorCode = error.getDefaultMessage();
+                    String errorMessage = messageSource.getMessage(errorCode, null, LocaleContextHolder.getLocale());
+                    errors.put(fieldName, errorMessage);
+                }
+            });
+            return new ResponseEntity<>(errors, HttpStatus.BAD_REQUEST);
+        }
+
+        // Lógica para criar o usuário
+        return new ResponseEntity<>("Usuário criado com sucesso", HttpStatus.CREATED);
+    }
+}
+```
+
+**Explicação do Código**
+
+**1. Arquivos de Propriedades:**
+
+- Os arquivos `messages.properties`, `messages_en.properties`, e `messages_pt.properties` contêm mensagens de erro em diferentes idiomas. As chaves das mensagens (por exemplo, `user.name.required`) são usadas nas anotações de validação.
+
+**2. Configuração do \`MessageSource\`:**
+
+- O `ReloadableResourceBundleMessageSource` é configurado para carregar os arquivos de propriedades.
+- O `LocalValidatorFactoryBean` é configurado para usar o `MessageSource` para mensagens de validação.
+
+**3. DTO com Anotações de Validação:**
+
+- O `UserDto` possui anotações de validação como `@NotEmpty` e `@Email`. As mensagens de erro são referenciadas usando chaves de mensagens (por exemplo, `{user.name.required}`).
+
+**4. Controlador com `MessageSource`:**
+
+- O `MessageSource` é injetado no controlador via `@Autowired`.
+- Quando ocorrem erros de validação, o `MessageSource` é usado para obter as mensagens de erro apropriadas com base no idioma do usuário.
+- As mensagens de erro são retornadas como uma resposta HTTP com o status `BAD_REQUEST`.
+
+**Conclusão**
+
+O `MessageSource` é uma ferramenta poderosa para internacionalização e localização em aplicações Spring. Ele permite que você forneça mensagens personalizadas e traduzidas, melhorando a experiência do usuário e a qualidade da sua API. Este exemplo demonstra como configurar e usar o `MessageSource` para fornecer mensagens de erro em diferentes idiomas.
