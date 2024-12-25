@@ -35,14 +35,7 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 #### 3.1.7 Psicologia das cores
 - **Descrição**: Estudo das emoções e percepivas associadas a cores para melhorar a experiência de usuário.
 
-### 3.2 Feature Flags
-- **Descrição**: Mecanismo usada para ativar ou desativar funcionalidades dinâmicas sem reiniciar a aplicação inteira.
-
-**Saiba mais:**
-- [Neste GitHub](https://github.com/JandersonMota/desenvolvedor/tree/main/front-end)
-- [Martin Fowler: Feature Toggles](https://martinfowler.com/articles/feature-toggles.html)
-
-### 3.4 Livro
+### 3.2 Livro
 - **"Don't Make Me Think" – Steve Krug**:
   Um clássico que aborda usabilidade de forma direta e acessível. Ideal para quem quer entender como os usuários interagem com websites e como simplificar a experiência.
 - **"Designing for the Web" – Mark Boulton**:
@@ -80,8 +73,16 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 
 ## 7. Ferramenta interesante
 
-### 7.1 Autenticação a aplicativos
+### 7.1 Feature Flags
+- **Descrição**: Mecanismo usada para ativar ou desativar funcionalidades dinâmicas sem reiniciar a aplicação inteira.
+
+**Saiba mais:**
+- [Neste GitHub](https://github.com/JandersonMota/desenvolvedor/tree/main/front-end)
+- [Martin Fowler: Feature Toggles](https://martinfowler.com/articles/feature-toggles.html)
+
+### 7.2 Autenticação a aplicativos
 - **Keycloak**: Plaforma de autenticação e autorização open source que suporta autenticação social, SSO, e gerenciamento de identidades.
 
 **Saiba mais:**
 - [Keycloak: Documentação Oficial](https://www.keycloak.org/)
+
