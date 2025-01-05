@@ -53,3 +53,11 @@ Portanto, um JWT normalmente se parece com o seguinte.
 
 **Saiba mais:**
 - [JWT](https://jwt.io/)
+
+
+# Spring Security
+
+O Spring Security é uma estrutura que fornece autenticação, autorização e proteção contra ataques comuns. Com suporte de primeira classe para proteger aplicativos imperativos e reativos, é o padrão de fato para proteger aplicativos baseados em Spring.
+
+**Saiba mais:**
+- [Spring docs: Spring Security](https://docs.spring.io/spring-security/reference/)
