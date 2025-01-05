@@ -108,3 +108,4 @@ A especificação que define o CORS é o Fetch Living Standard do WHATWG.
 
 **Saiba mais:**
 - [mmdn web docs: CORS](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CORS)
+- [Spring: Habilitando CORS](https://spring.io/guides/gs/rest-service-cors)
