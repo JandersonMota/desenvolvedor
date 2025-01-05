@@ -11,8 +11,6 @@
 3. **Personalização**:  
    Permitem habilitar ou desabilitar recursos de forma segmentada, adaptando funcionalidades de acordo com as preferências ou necessidades de grupos específicos de usuários. Essa flexibilidade aumenta a satisfação do cliente e otimiza a usabilidade do sistema.
 
----
-
 ## Vantagens significativas
 
 1. **Testes em produção com segurança**  
@@ -60,8 +58,6 @@
 9. **Aumento da flexibilidade em decisões**  
    Decisões como ativar ou desativar recursos podem ser tomadas com base em dados reais, validando hipóteses e ajustando estratégias com rapidez.
 
----
-
 ## Desvantagens e desafios
 
 1. **Complexidade no código**  
@@ -85,6 +81,30 @@
 7. **Risco de exposição indevida**  
    Recursos controlados por feature flags podem ser acessados indevidamente por usuários avançados, expondo funcionalidades em desenvolvimento.
 
----
-
 A utilização eficaz das feature flags depende de uma boa estratégia de gerenciamento, alinhamento entre equipes e controle rigoroso para evitar desafios comuns.
+
+
+# CORS - Cross-Origin Resource Sharing
+
+CORS (Cross-origin Resource Sharing) é um mecanismo que permite que aplicativos web acessem recursos de outros domínios. Ele funciona transmitindo cabeçalhos HTTP que informam aos navegadores se devem permitir que uma aplicação acesse recursos de outra origem.
+
+## O CORS é útil porque: 
+- Permite que páginas web integrem recursos de diferentes origens, como imagens, vídeos, scripts, folhas de estilo e iframes.
+- Garante a navegação segura ao usuário, evitando o acesso de websites maliciosos e a ação de crackers.
+- Permite que o navegador do cliente verifique com os servidores de terceiros se a solicitação foi autorizada antes de qualquer transferência de dados.
+
+## Os cabeçalhos CORS incluem: 
+- Access-Control-Allow-Origin
+- Access-Control-Allow-Credentials
+- Access-Control-Allow-Headers
+- Access-Control-Allow-Methods
+- Access-Control-Expose-Headers
+- Access-Control-Max-Age
+- Access-Control-Request-Headers
+- Access-Control-Request-Method
+- Origin
+
+A especificação que define o CORS é o Fetch Living Standard do WHATWG.
+
+**Saiba mais:**
+- [mmdn web docs: CORS](https://developer.mozilla.org/pt-BR/docs/Web/HTTP/CORS)
