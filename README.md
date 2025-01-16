@@ -86,3 +86,77 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 **Saiba mais:**
 - [Keycloak: Documentação Oficial](https://www.keycloak.org/)
 
+### 8. Infraestrutura CI/CD
+- Jenkins
+- Docker
+
+### 8.1 O que é IaC?
+- Infraestrutura como código (IaC) é a prática de gerenciar e provisionar infraestrutura de TI usando arquivos de configuração legíveis por máquinas.
+- Substitui processos manuais com código e automação.
+- Principais características:
+  - Imutabilidade: a infraestrutura é reconstruída em vez de alterada diretamente.
+  - Reutilização: códigos reutilizáveis para configurações repetidas.
+  - Ex.: utilização de arquivos YAML, JSON ou HCL para definir configurações de servidores e redes.
+- Vantagens da IaC:
+  - Automatização completa
+    - Reduz erros humanos.
+    - Diminui o tempo de provisionamento.
+  - Consistência
+    - Infraestrutura uniforme em diferentes ambientes (desenvolvimento, teste, produção).
+  - Auditabilidade
+    - Configurações versionadas em sistemas como Git.
+  - Escalabilidade e flexibilidade
+    - Facilita o crecimento rápido das aplicações e infraestruturas.
+  - Custo-benefício
+    - Economiza tempo e recursos humanos.
+   
+**Benefícios com IaC**
+- Estudo de caso:
+  - Uma empresa X reduziu o tempo de provisionamento de servidores de 2 dias para 20 minutos usando Terraform.
+- Dados estatísticos:
+  - Adoção de IaC pode reduzir até 90% dos erros de configuração.
+ 
+**Desafios e boas práticas**
+- Desafios:
+  - Curva de aprendizado inicial.
+  - Problemas de compatibilidade entre ferramentas.
+- Boas práticas:
+  - Versionar sempre: manter controle com Git.
+  - Documentar: detalhar configurações para facilitar manutenção.
+  - Automatizar testes: validação contínua das configurações.
+
+### 8.2 Ferramentas de IaC
+- Terraform
+- AWS CloudFormation
+- Ansible
+- Puppet
+- Chef
+- SaltStack
+- Pulumi
+- Kubernetes (Helm)
+- Google Cloud Deployment Manager
+- Vagrant
+
+
+- Prometheus
+- Grafana
+- Alertmanager: gerenciamento de alertas.
+- Loki: centralização de logs.
+- Tempo: monitoramento de traces.
+- Jaeger: rastreamento de transações distribuídas.
+
+### 8.3 Introdução à ELK Stack
+- O que é a ELK Stack
+  - Elasticsearch: Ferramenta de busca e análise para armazenar logs.
+  - Logstash: Pipeline para coleta e processamento de logs.
+  - Kibana: Ferramenta de visualização e análise de logs.
+
+- Benefícios da ELK Stack
+  - Open-source e altamente customizável.
+  - Escalabilidade para grandes volumes de dados.
+  - Integração com diversas ferramentas e protocolos.
+ 
+- Cenários de uso
+  - Monitoramento de aplicações.
+  - Investigação de incidentes de segurança.
+  - Otimização de desempenho de sistemas.
