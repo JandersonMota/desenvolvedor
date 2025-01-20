@@ -1,3 +1,11 @@
+# SQL
+
+## Baixar
+
+**O que vai precisar?**
+1. SGBD: irremos usar o **<a href="https://dev.mysql.com/downloads/installer/">MySQL</a>**.
+2. Ferramenta visual para controlar SGBD: **<a href="https://dev.mysql.com/downloads/workbench/?os=33">Workbench</a>**.
+
 # ORM (*Object-relational mapping* ou mapeamento objeto-relacional)
 
 ## Anotação
