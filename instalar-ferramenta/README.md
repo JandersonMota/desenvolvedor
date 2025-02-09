@@ -22,3 +22,28 @@ C:\Program Files\Apache\Maven\bin
 ```
 mvn -version
 ```
+
+### Javalin + Maven
+Javalin é um micro framework para desenvolvimento de aplicações web em Java e Kotlin. Ele foi inicialmente um fork do framework SparkJava, mas rapidamente se transformou em uma reescrita baseada em lições aprendidas com SparkJava e o framework JavaScript Koa.js. O Javalin é conhecido por ser leve e fácil de usar, sendo utilizado principalmente para a criação de APIs REST, mas também oferece suporte a WebSockets e a leitura de arquivos estáticos, como HTML.
+
+Além disso, o Javalin tem a capacidade de estender o objeto Context, permitindo que os desenvolvedores adicionem funções personalizadas para facilitar o trabalho com objetos que não são nativamente suportados em Java. Ele também suporta a serialização de objetos e o compartilhamento de informações entre handlers e requests através de um cookie-store-map.
+
+O Javalin é utilizado por grandes empresas como Microsoft e Red Hat e é conhecido por sua documentação clara e pela facilidade em construir REST APIs.
+
+Roda o servidor Javalin.
+```
+mvn clean compile exec:java
+```
+
+### Chocolatey + Maven
+
+Instalar o Maven pelo Chocolatey (Windows)
+```
+choco install maven
+```
+Verificar a instalação
+```
+mvn -version
+```
+
+[Chocolatey: o que é e como usar](https://imasters.com.br/back-end/chocolatey-o-que-e-e-como-usar)
