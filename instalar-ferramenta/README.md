@@ -5,7 +5,7 @@
 
 1️⃣ **Baixe o Maven** no site oficial:
 
-👉 Apache Maven - Download
+👉 <a href="https://maven.apache.org/download.cgi">Apache Maven - Download</a>
 
 2️⃣ **Extraia o arquivo** para um local do seu sistema (ex: `C:\Program Files\Apache\Maven`).
 
