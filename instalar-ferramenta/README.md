@@ -1,5 +1,12 @@
 # Instalar Ferramenta
 
+## Linguagem
+- **Java**: <a href="https://www.azul.com/downloads/?package=jdk#zulu">Zulu</a>
+
+## IDE
+- **VSCode**: <a href="https://code.visualstudio.com/download">VSCode</a>
+- **Spring Tool Suite**: <a href="https://spring.io/tools">Spring</a>
+
 ## Maven
 📌 **Opção 2: Instalar Manualmente (Windows, Linux, Mac)**
 
@@ -47,3 +54,9 @@ mvn -version
 ```
 
 [Chocolatey: o que é e como usar](https://imasters.com.br/back-end/chocolatey-o-que-e-e-como-usar)
+
+## SQL
+
+1️⃣ **SGBD**: sevidor **<a href="https://dev.mysql.com/downloads/installer/">MySQL</a>**.
+
+2️⃣ **Ferramenta visual para controlar SGBD**: **<a href="https://dev.mysql.com/downloads/workbench/?os=33">Workbench</a>**.
