@@ -17,3 +17,16 @@ mvn clean compile -U
 ```
 mvn exec:java
 ```
+4. Iniciar o servidor:
+- Executar diretamente o seu aplicativo Spring Boot sem precisar empacotar o projeto em um `.jar`.
+
+📌 Quando usar `mvn spring-boot:run`?
+
+✅ Durante o desenvolvimento, para testar rapidamente a aplicação sem precisar criar um `.jar`.
+
+✅ Quando você quer que o Maven gerencie todas as dependências e execução automaticamente.
+
+❌ Não é recomendado para produção (nesse caso, você gera um `.jar` e roda com `java -jar`).
+```
+mvn spring-boot:run
+```
