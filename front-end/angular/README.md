@@ -13,20 +13,22 @@
   - Ex.: "ng new crud-angular"
   - Vai perguntar se quer roteamento e a resposta é SIM.
   - Vai perguntar "qual é o estilo de CSS que quer utilizar?".
-🔹 Observação:
-  - Este comando cria um projeto Angular com Standalone API ativada por padrão.
-  - O Angular não criará `app.module.ts`.
-  - Ele usará `bootstrapApplication(AppComponent)` no `main.ts` para inicializar o app.
-  - Os componentes são Standalone (usam `standalone: true` em vez de serem declarados em um módulo).
-  - Melhor performance e menos código desnecessário.
+
+  🔹 Observação:
+    - Este comando cria um projeto Angular com Standalone API ativada por padrão.
+    - O Angular não criará `app.module.ts`.
+    - Ele usará `bootstrapApplication(AppComponent)` no `main.ts` para inicializar o app.
+    - Os componentes são Standalone (usam `standalone: true` em vez de serem declarados em um módulo).
+    - Melhor performance e menos código desnecessário.
 
 - Criar projeto: "ng new < nome-do-projeto > --standalone=false"
   - Este comando força o Angular a criar o projeto usando NgModule (arquitetura antiga/tradicional).
-🔹 Observação:
-  - O Angular criará `app.module.ts`.
-  - Os componentes são agrupados dentro de um `NgModule`.
-  - O `main.ts` inicializa o app chamando `platformBrowserDynamic().bootstrapModule(AppModule)`.
-  - Boa escolha se você quer compatibilidade com projetos mais antigos.
+
+  🔹 Observação:
+    - O Angular criará `app.module.ts`.
+    - Os componentes são agrupados dentro de um `NgModule`.
+    - O `main.ts` inicializa o app chamando `platformBrowserDynamic().bootstrapModule(AppModule)`.
+    - Boa escolha se você quer compatibilidade com projetos mais antigos.
 
 📌 Quando usar cada um?
 
