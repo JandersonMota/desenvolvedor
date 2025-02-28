@@ -1,6 +1,8 @@
 # Curso
 
-- <a href="https://www.youtube.com/watch?v=qJnjz8FIs6Q&list=PLGxZ4Rq3BOBpwaVgAPxTxhdX_TfSVlTcY">Angular</a>
+- Angular
+   - <a href="https://www.youtube.com/watch?v=qJnjz8FIs6Q&list=PLGxZ4Rq3BOBpwaVgAPxTxhdX_TfSVlTcY">Loiane Groner</a>
+   - <a href="https://www.youtube.com/watch?v=zXL0hmil964&list=PLWXw8Gu52TRKj3tFWHlkheh8rLQRqQ1__">Ralf Lima</a>
 
 # Feature Flags
 
