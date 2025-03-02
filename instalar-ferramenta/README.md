@@ -6,6 +6,7 @@
 ## IDE
 - **VSCode**: <a href="https://code.visualstudio.com/download">VSCode</a>
 - **Spring Tool Suite**: <a href="https://spring.io/tools">Spring</a>
+- **IntelliJ IDEA**: <a href="https://www.jetbrains.com/idea/">Jetbrains</a>
 
 ## Maven
 📌 **Opção 2: Instalar Manualmente (Windows, Linux, Mac)**
@@ -60,3 +61,13 @@ mvn -version
 1️⃣ **SGBD**: sevidor **<a href="https://dev.mysql.com/downloads/installer/">MySQL</a>**.
 
 2️⃣ **Ferramenta visual para controlar SGBD**: **<a href="https://dev.mysql.com/downloads/workbench/?os=33">Workbench</a>**.
+
+## Criar um Projeto Spring Boot
+
+- Acesse o <a href="https://start.spring.io/">Spring Initializr</a>
+- Escolha:
+  - Project: Maven ou Gradle
+  - Language: Java
+  - Spring Boot Version: 3.x
+  - Dependencies: Adicione Spring Web, Spring Data JPA, Lombok, etc.
+- Baixe o projeto e extraia o ZIP.
