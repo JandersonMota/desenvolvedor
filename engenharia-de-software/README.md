@@ -55,5 +55,6 @@ Por exemplo:
 - **Singleton** é um padrão **criacional de objeto**, pois o controle é feito sobre uma instância única.
 - **Adapter** pode ser tanto **de classe** quanto **de objeto**, dependendo de como é implementado.
 
+### 🧠 Mapa Mental
 <img width="1225" height="816" alt="image" src="https://github.com/user-attachments/assets/2e94d91d-9787-4b0a-b505-37c971c0879d" />
 
