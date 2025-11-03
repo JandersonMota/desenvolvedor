@@ -95,3 +95,117 @@ var permiteParcelar = preco > 100 && true;
 console.log(permiteParcelar);
 // vai imprimir false
 ```
+
+## Função
+
+- Uma função é definida com a palavra-chave `function`.
+- O **nome** segue as regras de nomenclatura para variáveis.
+- Os **parâmetros** opcionais são listados entre parênteses: **(p1, p2, p3)**.
+- O **código** a ser executado está listado entre chaves.
+- Opcionalmente, as funções podem **retornar** um valor de volta para o "chamador".
+
+```
+function name(p1, p2, p3) {
+  // code
+}
+```
+
+> Acessar uma função sem () retorna a função e não o resultado da função:
+
+```
+function toCelsius(fahrenheit) {
+  return (5/9) * (fahrenheit-32);
+}
+
+let value = toCelsius;
+```
+
+### 🔻 Funções de seta
+As funções de seta nos permitem escrever uma sintaxe de função mais curta
+
+Sem seta:
+```
+let myFunction = function(a, b) {return a * b}
+
+```
+
+Com seta:
+```
+let myFunction = (a, b) => a * b;
+
+```
+
+### 🔻 Funções usadas como variáveis
+As funções podem ser usadas como variáveis, em todos os tipos de fórmulas, atribuições e cálculos.
+
+Em vez de usar uma variável para armazenar o valor de retorno de uma função:
+```
+let x = toCelsius(77);
+let text = "The temperature is " + x + " Celsius";
+```
+
+Você pode usar a função diretamente, como um valor variável:
+```
+let text = "The temperature is " + toCelsius(77) + " Celsius";
+
+```
+
+### 🔻 Immediately Invoked Function Expression (IIFE)
+
+Uma função que é declarada e executada imediatamente.
+```
+(function nome() {
+    // código
+})();
+```
+Explicação:
+1. `function nome() { ... }`
+    - Isso é a declaração da função chamada `nome`.
+
+2. Os parênteses ao redor da função: `(function nome() { ... })`
+    - Transformam a declaração em uma **expressão de função**.
+
+    - → Em JavaScript, uma *função declarada* (sem parênteses) não pode ser chamada imediatamente — por isso usamos os parênteses para dizer:
+
+    > “Isto é uma expressão de função, não uma declaração.”
+
+3. Os parênteses finais `()`
+
+   Chamam a função **imediatamente após a definição**.
+
+#### 🔹 Em resumo
+
+O código:
+```
+(function main() {
+    console.log("Rodando imediatamente!");
+})();
+```
+1. Criar a função `main`
+2. Executá-la logo em seguida
+
+#### 🔹 Para que serve um IIFE?
+
+Ele é usado quando você quer **executar um bloco de código imediatamente, mas sem deixar variáveis ou funções expostas no escopo global**.
+
+Exemplo:
+```
+(function() {
+    const segredo = "12345";
+    console.log("Executado e isolado!");
+})();
+
+console.log(typeof segredo); // undefined
+```
+A variável `segredo` só existe **dentro da função** — fora dela, não é acessível.
+
+#### 🔹 Variações
+
+Pode usar arrow functions:
+```
+(() => {
+    console.log("IIFE com arrow function");
+})();
+```
+
+⚠️ Assim que o script roda, a função é chamada automaticamente — ótimo para configurações, logs, ou inicializações.
