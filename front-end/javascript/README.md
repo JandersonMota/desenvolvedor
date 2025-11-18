@@ -312,3 +312,47 @@ const mySister = new Person("Anna", "Rally", 18, "green");
 
 const mySelf = new Person("Johnny", "Rally", 22, "green");
 ```
+
+## Classe
+
+Use a palavra-chave para criar uma classe `class`.
+Sempre adicione um método chamado `constructor()`:
+
+Sintaxe:
+```
+class ClassName {
+  constructor() { ... }
+}
+```
+
+Exemplo:
+```
+class Car {
+  constructor(name, year) {
+    this.name = name;
+    this.year = year;
+  }
+}
+```
+
+> Nota:
+>
+> Uma classe JavaScript **não** é um objeto. É um **modelo** para objetos JavaScript.
+
+Quando você tem uma classe, pode usá-la para criar objetos:
+```
+const myCar1 = new Car("Ford", 2014);
+const myCar2 = new Car("Audi", 2019);
+```
+
+> Nota:
+>
+> O método construtor é chamado automaticamente quando um novo objeto é criado.
+
+O método construtor é um método especial:
+
+- Ele precisa ter o nome exato "constructor", ou seja, sempre adicione um método `constructor()`.
+- Ele é executado automaticamente quando um novo objeto é criado
+- É usado para inicializar propriedades de objetos
+
+Se você não definir um método construtor, JavaScript vai adicionar um método construtor vazio.
