@@ -6,7 +6,7 @@
 - const
 
 ## Operadores
-### Operadores Aritméticos
+### 🔻 Operadores Aritméticos
 | Operador | Descrição |
 |----------|-----------|
 | + | Adição |
@@ -18,7 +18,7 @@
 | ++ | Incremento |
 | -- | Decremento |
 
-### Operadores de Atribuição
+### 🔻 Operadores de Atribuição
 | Operador | Equivale a |
 |----------|-----------|
 | = | x = y |
@@ -27,7 +27,7 @@
 | /= | x = x / y |
 | %= | x = x % y |
 
-### Operadores de Comparação
+### 🔻 Operadores de Comparação
 | Operador | Descrição |
 |----------|-----------|
 | == | Igual a |
@@ -41,14 +41,14 @@
 
 > `=` é para atribuição; `==` para igualdade; e `===` para identico;
 
-### Operadores Lógicos
+### 🔻 Operadores Lógicos
 | Operador | Descrição |
 |----------|-----------|
 | && | 'e' lógico |
 | \|\| | 'ou' lógico |
 | ! | 'não' lógico |
 
-### Operador Ternário
+### 🔻 Operador Ternário
 ```
 condicao ? código1 : código2
 
@@ -70,7 +70,7 @@ if ( condicao ) {
 }
 ```
 
-### Operador &&
+### 🔻 Operador &&
 
 O operador `&&` possui um comportamento chamado curto-circuito que torna possível executar um código de forma similar ao if.
 
@@ -209,3 +209,106 @@ Pode usar arrow functions:
 ```
 
 ⚠️ Assim que o script roda, a função é chamada automaticamente — ótimo para configurações, logs, ou inicializações.
+
+## Objeto
+
+- Um **Objeto** é uma variável que pode conter muitas variáveis.
+- Objetos são coleções de **pares-chave-valor**, onde cada chave (conhecida como **nomes de propriedades**) tem um valor.
+
+> **Nota:**
+> 
+> Você deve declarar objetos com a palavra-chave `const`. Quando um objeto é declarado com `const`, você não pode depois reatribuí-lo para apontar para uma variável diferente.
+Isso não torna o objeto imutável. Você ainda pode modificar suas propriedades e valores.
+
+### 🔻 Como criar um Objeto
+
+Um **objeto literal** é uma lista de **pares de valor chave** dentro de colchetes **enrolados { }**.
+```
+// Create an Object
+const person = {
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+};
+```
+
+Você também pode criar um **objeto vazio** e adicionar as propriedades depois:
+```
+// Create an Object
+const person = {};
+
+// Add Properties
+person.firstName = "John";
+person.lastName = "Doe";
+person.age = 50;
+person.eyeColor = "blue";
+```
+
+Crie um novo objeto JavaScript usando `new Object()`
+```
+// Create an Object
+const person = new Object({
+  firstName: "John",
+  lastName: "Doe",
+  age: 50,
+  eyeColor: "blue"
+});
+```
+
+> Nota:
+>
+> Todos os exemplos acima fazem exatamente a mesma coisa. Não há necessidade de usar `new Object()`. Para legibilidade, simplicidade e velocidade, use um objeto literal.
+
+### 🔻 Propriedades do Objeto
+
+Você pode acessar as propriedades dos objetos de duas maneiras:
+```
+person.lastName;
+```
+
+```
+person["lastName"];
+```
+
+### 🔻 Definir de funções
+
+```
+const person = {
+  firstName: "John",
+  lastName : "Doe",
+  id       : 5566,
+
+  fullName : function() {
+    return this.firstName + " " + this.lastName;
+  }
+
+};
+```
+
+### 🔻 Funções construtoras
+
+Às vezes precisamos criar muitos objetos do mesmo **tipo**. Para criar um **tipo de objeto**, usamos uma **função construtora de objetos**. É considerado uma boa prática nomear funções construtoras com uma letra maiúscula.
+
+Tipo Objeto Pessoa:
+```
+function Person(first, last, age, eye) {
+  this.firstName = first;
+  this.lastName = last;
+  this.age = age;
+  this.eyeColor = eye;
+}
+```
+
+> Nota:
+>
+> Na função construtora, não tem valor `this`. O valor de se tornará o novo objeto quando um novo objeto é criado `this`.
+
+Agora podemos usar para criar muitos novos objetos Person `new Person()`:
+```
+const myFather = new Person("John", "Doe", 50, "blue");
+const myMother = new Person("Sally", "Rally", 48, "green");
+const mySister = new Person("Anna", "Rally", 18, "green");
+
+const mySelf = new Person("Johnny", "Rally", 22, "green");
+```
