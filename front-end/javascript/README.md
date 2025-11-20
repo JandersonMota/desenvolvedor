@@ -1,5 +1,13 @@
 # Javascript
 
+## Índice
+- [Declarar variáveis](#declarar-variaveis)
+- [Operadores](#operadores)
+- [Estrutura condicional](#estrutura-condicional)
+- [Função](#funcao)
+- [Objeto](#objeto)
+- [Classe](#classe)
+
 ## Declarar variáveis
 - var
 - let
@@ -95,6 +103,73 @@ var permiteParcelar = preco > 100 && true;
 console.log(permiteParcelar);
 // vai imprimir false
 ```
+
+## Array
+- Um Array é um tipo de objeto projetado para armazenar coleções de dados.
+- No JavaScript, os arrays usam índices numerados.
+- No JavaScript, os objetos usam índices nomeados.
+
+> Nota:
+>
+> É prática comum declarar arrays com a palavra-chave `const`.
+
+Exemplo:
+```
+const cars = ["Saab", "Volvo", "BMW"];
+```
+
+Você também pode criar um array vazio e fornecer elementos depois:
+```
+const cars = [];
+cars[0]= "Saab";
+cars[1]= "Volvo";
+cars[2]= "BMW";
+```
+
+O exemplo a seguir também cria um Array e atribui valores a ele:
+```
+const cars = new Array("Saab", "Volvo", "BMW");
+```
+
+> Nota:
+>
+> Os dois exemplos acima fazem exatamente a mesma coisa. Não há necessidade de usar `new Array()`. Para simplicidade, legibilidade e velocidade de execução, use o método literal do array.
+
+Você acessa um elemento do array consultando o número do índice:
+```
+const cars = ["Saab", "Volvo", "BMW"];
+let car = cars[0];
+```
+
+O método `toString()` JavaScript converte um array em um Cadeia de valores de array (separados por vírgula).
+Exemplo:
+```
+const fruits = ["Banana", "Orange", "Apple", "Mango"];
+document.getElementById("demo").innerHTML = fruits.toString();
+```
+
+Com JavaScript, o array completo pode ser acessado consultando o array nome:
+```
+const cars = ["Saab", "Volvo", "BMW"];
+document.getElementById("demo").innerHTML = cars;
+```
+
+A maneira mais fácil de adicionar um novo elemento a um array é usando o método `push()`:
+```
+const fruits = ["Banana", "Orange", "Apple"];
+fruits.push("Lemon");  // Adds a new element (Lemon) to fruits
+```
+
+Novos elementos também podem ser adicionados a um array usando a propriedade `length`:
+```
+const fruits = ["Banana", "Orange", "Apple"];
+fruits[fruits.length] = "Lemon";  // Adds "Lemon" to fruits
+```
+
+### 🔻 Quando usar matrizes. Quando usar Objetos.
+- JavaScript não suporta arrays associativos.
+- Você deve usar objetos quando quiser que os nomes dos elementos sejam strings (texto).
+- Você deve usar arrays quando quiser que os nomes dos elementos sejam números.
 
 ## Função
 
