@@ -4,6 +4,7 @@
 - [Declarar variáveis](#declarar-variaveis)
 - [Operadores](#operadores)
 - [Estrutura condicional](#estrutura-condicional)
+- [Array](#array)
 - [Função](#funcao)
 - [Objeto](#objeto)
 - [Classe](#classe)
