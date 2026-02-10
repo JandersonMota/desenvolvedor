@@ -67,6 +67,8 @@ Estruturas de dados são a base para a análise de complexidade de algoritmos, p
 
 ## 6. Engenharia de software
 - **Monolito de Software**: Arquitetura de aplicações em que todas as funcionalidades são empacotadas em uma única aplição.
+- **Arquitetura Cliente-Servidor**
+- **Arquitetura em Camadas**
 
 **Saiba mais:**
 - [Martin Fowler: Monolito](https://martinfowler.com/bliogs/anatomy-of-monolith.html)
