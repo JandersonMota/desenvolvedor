@@ -28,12 +28,25 @@ Quando quebramos uma aplicação monolítica em várias pequenas partes, consegu
 ### O que é um container
 Os contêineres são uma tecnologia usada para reunir um aplicativo e todos os seus arquivos necessários em um ambiente de tempo de execução. Como uma unidade, o contêiner pode ser facilmente movido e executado em qualquer sistema operacional, em qualquer contexto.
 
+[IBM - contêineres](https://www.ibm.com/br-pt/cloud/learn/containers)
+[Red Hat - contêineres](https://www.redhat.com/pt-br/topics/containers)
+
 ### O que é Docker?
 Com o Docker, é possível lidar com os containers como se fossem máquinas virtuais modulares e extremamente leves. Além disso, os containers oferecem maior flexibilidade para você criar, implantar, copiar e migrar um container de um ambiente para outro. Isso otimiza as aplicações em nuvem (privada e pública).
 
 <img width="517" height="494" alt="image" src="https://github.com/user-attachments/assets/2f9719a9-7eba-4435-8f22-a7319d21ce8d" />
 
+[Red Hat](https://www.redhat.com/pt-br/topics/containers/what-is-docker)
+[Microsoft](https://docs.microsoft.com/pt-br/dotnet/architecture/microservices/container-docker-introduction/docker-defined)
+
 ### Qual é a diferença entre virtualização e os containers?
 As duas tecnologias são distintas porém complementares. Veja uma maneira fácil de distinguir ambas:
 - Com a virtualização, é possível executar sistemas operacionais (Windows ou Linux) simultaneamente em um único sistema de hardware.
 - Os containers compartilham o mesmo kernel do sistema operacional e isolam os processos da aplicação do restante do sistema. Os containers Linux são extremamente portáteis, mas devem ser compatíveis com sistema subjacente.
+
+[Red Hat - Containers e VMs](https://www.redhat.com/pt-br/topics/containers/containers-vs-vms)
+
+### Comandos essenciais
+[Medium](https://medium.com/xp-inc/principais-comandos-docker-f9b02e6944cd)
+[Docker](https://docs.docker.com/engine/reference/commandline/docker/)
+[Dev](https://dev.to/soutoigor/docker-imagens-containers-e-seus-principais-comandos-23p6)
